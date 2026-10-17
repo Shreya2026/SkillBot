@@ -32,7 +32,10 @@ function UserCourseList() {
 
   return (
     <div>
-      <h2 className="font-medium text-xl">My AI courses</h2>
+      <div className="mb-5 flex items-end justify-between">
+        <div><p className="eyebrow">Your library</p><h2 className="display-serif mt-1 text-3xl font-bold">My courses</h2></div>
+        <span className="text-sm text-[#68736c]">{courseList.length} saved</span>
+      </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {courseList.length > 0 ? (
@@ -49,7 +52,7 @@ function UserCourseList() {
             {[1, 2, 3, 4, 5].map((item) => (
               <div
                 key={item}
-                className="w-full bg-slate-200 animate-pulse rounded-lg h-[200px]"
+                className="h-[260px] w-full animate-pulse rounded-none bg-[#e8dfcf]"
               />
             ))}
           </div>

@@ -21,20 +21,19 @@ function CourseCard({course, refreshData}) {
     }
 
   return (
-    <div className='shadow-sm rounded-lg border p-2  cursor-pointer mt-4'>
+    <div className='group mt-4 cursor-pointer border border-[#d8d0c2] bg-[#fffdf7] p-2 transition-transform hover:-translate-y-1 hover:shadow-[6px_6px_0_#e4a853]'>
       <Link href={`/course/${course.courseId}`} className='flex flex-col'>
       <Image src={imageSrc} width={300} height={200} alt="Course thumbnail"
-      className='rounded-lg shadow-md w-full h-[200px] 
-      object-cover mt-4 rounded-lg'/>
+      className='mt-4 h-[200px] w-full object-cover grayscale transition-all group-hover:grayscale-0'/>
       </Link>
       <div className='p-2'>
-        <h2 className='font-medium text-lg mt-2 flex justify-between items-center'>
+        <h2 className='mt-2 flex items-center justify-between font-medium text-lg'>
             {course?.courseOutput?.['Course Name'] || course?.name || 'Untitled Course'}
             <DropdownOption handleOnDelete={handleOnDelete}>
                 <IoEllipsisVerticalOutline />
             </DropdownOption>
         </h2>
-        <p className='text-sm text-gray-400 my-1'>{course?.category}</p>
+        <p className='my-1 text-sm uppercase tracking-wider text-[#b54e3b]'>{course?.category}</p>
         <div className='flex items-center justify-between'>
             <h2 className='flex gap-2 items-center'><IoBookOutline />{course.courseOutput['NoOfChapters']} Chapters</h2>
             <h2 className='text-sm  text-sm'>{course.level}</h2>

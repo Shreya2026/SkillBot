@@ -11,14 +11,15 @@ function AddCourse() {
     const {user} = useUser();
     const {userCourseList,setUserCourseList} = useContext(UserCourseListContext);
   return (
-    <div className='flex items-center justify-between'>
+    <div className='mb-14 flex flex-col items-start justify-between gap-6 border-b border-[#d8d0c2] pb-10 md:flex-row md:items-end'>
       <div >
-        <h2 className='text-lg'>Hello, <span className='font-bold'>{user?.fullName}</span></h2>
-        <p className='text-sm text-gray-500'>create new course with AI, learn from the best and share it with your friends.</p>
+        <p className="eyebrow">Your curriculum, your pace</p>
+        <h2 className='display-serif mt-2 text-5xl font-bold'>Make something worth learning.</h2>
+        <p className='mt-3 max-w-xl text-sm text-[#68736c]'>Create a focused course with AI, then shape every chapter before you begin.</p>
       </div>
 
       <Link href={userCourseList.length >= 5 ?'/dashboard/upgrade': '/create-course'  }>
-        <Button> + Create Course</Button>
+        <Button className="h-12 rounded-none bg-[#b54e3b] px-6 text-[#fffdf7] hover:bg-[#963d2e]">+ Create course</Button>
       </Link>
     </div>
   )

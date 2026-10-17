@@ -15,16 +15,16 @@ function TopicDescription() {
         }));
     }
   return (
-    <div className='mx-20 lg:mx-44'>
+    <div className='mx-2 md:mx-10'>
         <div className='mt-5'>
-            <label htmlFor="">write the topic for which you want to generate a course
+            <label className="mb-2 block text-sm font-bold uppercase tracking-wider text-[#1d5b50]" htmlFor="">Write the topic for which you want to generate a course
                 (e.g.., Python, React, AI, etc.)</label>
             <Input placeholder={'Topic'} 
             defaultValue={userCourseInput?.topic}
             onChange={(e) => handleInputCChange('topic', e.target.value)} />
         </div>
         <div className='mt-5'>
-            <label htmlFor="">
+            <label className="mb-2 block text-sm font-bold uppercase tracking-wider text-[#1d5b50]" htmlFor="">
                 Tell us more about your course, what you want to include in the course(optional) 
             </label>
             <Textarea placeholder="About your course"

@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import YouTube from 'react-youtube'
 import { FiCopy, FiCheck } from 'react-icons/fi'
+import { Button } from '@/components/ui/button'
 
 const opts = {
       height: '390',
@@ -11,7 +12,7 @@ const opts = {
       },
     };
 
-function ChapterContent({chapter,content}) {
+function ChapterContent({chapter,content,onPreviousChapter,onNextChapter}) {
   const [copiedIndex, setCopiedIndex] = useState(null);
 
   // Handle different content structures
@@ -41,28 +42,29 @@ function ChapterContent({chapter,content}) {
   };
 
   return (
-    <div className='p-10'>
-      <h2 className='font-medium text-2xl'>
+    <div className='mx-auto max-w-4xl p-6 md:p-12'>
+      <p className="eyebrow">Lesson notes</p>
+      <h2 className='display-serif mt-3 text-5xl font-bold'>
         {chapter?.['Chapter Name']}
       </h2>
-      <p className='text-gray-500 text-medium'>{chapter?.['About']}</p>
-      <div className='flex justify-center my-6'>
+      <p className='mt-4 text-lg leading-8 text-[#68736c]'>{chapter?.['About']}</p>
+      <div className='my-8 flex justify-center overflow-hidden border border-[#d8d0c2] bg-[#e8dfcf] p-3'>
         <YouTube videoId={content?.videoId}
       opts={opts}/>
       </div>
       
-      <div>
+      <div className="space-y-5">
   {contentArray.length > 0 ? (
     contentArray.map((item, index) => (
-      <div key={index} className="mb-4 p-5 bg-slate-50 rounded-lg">
-        <h2 className="font-medium text-lg text-black">{item.title}</h2>
-        <p className="text-gray-400 text-sm mb-2 whitespace-pre-wrap">{item.description}</p>
+      <div key={index} className="border-l-4 border-[#e4a853] bg-[#fffdf7] p-6 shadow-[4px_4px_0_#e8dfcf]">
+        <h2 className="display-serif text-2xl font-bold text-[#1d2924]">{item.title}</h2>
+        <p className="mb-2 mt-3 whitespace-pre-wrap text-[#68736c]">{item.description}</p>
         
         {item.code && 
         <div className='relative mt-3'>
           <button
             onClick={() => copyToClipboard(item.code, index)}
-            className='absolute top-2 right-2 p-2 bg-gray-700 hover:bg-gray-600 rounded transition-colors'
+            className='absolute right-2 top-2 rounded bg-[#1d5b50] p-2 transition-colors hover:bg-[#294a41]'
             title='Copy code'
           >
             {copiedIndex === index ? (
@@ -71,7 +73,7 @@ function ChapterContent({chapter,content}) {
               <FiCopy className='text-white' size={16} />
             )}
           </button>
-          <pre className="bg-gray-900 text-white p-4 rounded overflow-x-auto max-h-96 overflow-y-auto">
+          <pre className="max-h-96 overflow-x-auto rounded bg-[#1d2924] p-4 text-[#f5f1e8]">
             <code>{cleanCode(item.code)}</code>
           </pre>
         </div>
@@ -79,11 +81,26 @@ function ChapterContent({chapter,content}) {
       </div>
     ))
   ) : (
-    <div className="mb-4 p-5 bg-slate-50 rounded-lg">
-      <p className="text-gray-400">No content available for this chapter.</p>
+    <div className="border border-[#d8d0c2] bg-[#fffdf7] p-5">
+      <p className="text-[#68736c]">No content available for this chapter.</p>
     </div>
   )}
 </div>
+
+      {chapter && (
+        <nav className="mt-10 flex flex-col gap-3 border-t border-[#d8d0c2] pt-6 sm:flex-row sm:justify-between" aria-label="Chapter navigation">
+          {onPreviousChapter ? (
+            <Button type="button" variant="outline" className="h-11 rounded-none border-[#1d5b50] bg-transparent text-[#1d5b50] hover:bg-[#e8dfcf]" onClick={onPreviousChapter}>
+              ← Previous Chapter
+            </Button>
+          ) : <span />}
+          {onNextChapter && (
+            <Button type="button" className="h-11 rounded-none bg-[#1d5b50] text-[#fffdf7] hover:bg-[#294a41]" onClick={onNextChapter}>
+              Next Chapter →
+            </Button>
+          )}
+        </nav>
+      )}
 
     </div>
   )

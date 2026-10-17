@@ -10,13 +10,13 @@ function DashboardLayout({ children }) {
   const [userCourseList,setUserCourseList]=useState([]);
   return (
     <UserCourseListContext.Provider value={{userCourseList, setUserCourseList}}>
-    <div>
+    <div className="min-h-screen bg-[#f5f1e8]">
         <div className='md:w-64 hidden md:block'>
             <SideBar />
         </div>
         <div className='md:ml-64'>
             <Header />
-            <div className='p-10'>
+            <div className='p-5 md:p-10'>
                 {children}
             </div>
         </div>

@@ -1,6 +1,5 @@
 "use client"
 import React from 'react'
-import Image from 'next/image'
 import { GrHomeRounded } from "react-icons/gr";
 import { CiSettings } from "react-icons/ci";
 import { RiStackLine } from "react-icons/ri";
@@ -35,13 +34,16 @@ function SideBar() {
     ]
     const path=usePathname();
   return (
-    <div className='fixed h-full md:w-64 p-5 shadow-lg bg-gradient-to-br from-purple-50 via-white to-purple-50 border-r border-purple-100'>
-      <Image src={'/logo.png'} alt="Logo" width={150} height={50} className='mb-5' />
-      <hr className='my-5 border-purple-200' />
+    <div className='fixed h-full md:w-64 border-r border-[#3c5a51] bg-[#1d2924] p-6 text-[#f5f1e8]'>
+      <div className="mb-10 flex items-center gap-3">
+        <span className="grid h-10 w-10 place-items-center bg-[#e4a853] text-xl font-bold text-[#1d2924]">S</span>
+        <span className="display-serif text-2xl font-bold">skill bot<span className="text-[#e4a853]">.</span></span>
+      </div>
+      <p className="mb-4 text-xs uppercase tracking-[.2em] text-[#9eb1a7]">Navigate</p>
       <ul>
         {Menu.map((item,index)=> (
             <Link key={index} href={item.path}>
-              <div className={`flex items-center gap-3 p-3 rounded-lg mb-2 transition-all duration-200 cursor-pointer ${path===item.path ? 'bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-md' : 'text-gray-700 hover:bg-purple-100 hover:text-purple-700 hover:shadow-sm'}`}>
+              <div className={`mb-2 flex cursor-pointer items-center gap-3 border-l-2 p-3 transition-all duration-200 ${path===item.path ? 'border-[#e4a853] bg-[#294a41] text-[#fffdf7]' : 'border-transparent text-[#b7c7be] hover:bg-[#294a41] hover:text-[#fffdf7]'}`}>
                   <div className='text-2xl'>{item.icon}</div>
                   <h2 className='font-medium'>{item.name}</h2>
               </div>
@@ -50,9 +52,9 @@ function SideBar() {
       </ul>
 
       <div className='absolute bottom-10 w-[80%]'>
-        <Progress value={(userCourseList.length / 5) * 100} className='h-2' />
-        <h2 className='text-sm my-2 font-medium text-gray-700'>{userCourseList.length} out of 5 courses created</h2>
-        <h2 className='text-xs text-gray-500'>Upgrade your plan for unlimited course creation</h2>
+        <Progress value={(userCourseList.length / 5) * 100} className='h-1 bg-[#3c5a51]' />
+        <h2 className='my-2 text-sm font-medium text-[#f5f1e8]'>{userCourseList.length} out of 5 courses created</h2>
+        <h2 className='text-xs text-[#9eb1a7]'>Upgrade your plan for unlimited course creation</h2>
       </div>
     </div>
   )

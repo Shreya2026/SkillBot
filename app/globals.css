@@ -44,38 +44,38 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: #fafafa;
-  --foreground: #0a0a0a;
-  --card: #ffffff;
-  --card-foreground: #0a0a0a;
-  --popover: #ffffff;
-  --popover-foreground: #0a0a0a;
-  --primary: #7c3aed;
-  --primary-foreground: #ffffff;
-  --secondary: #f4f4f5;
-  --secondary-foreground: #18181b;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --accent: #ede9fe;
-  --accent-foreground: #5b21b6;
-  --destructive: #ef4444;
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #7c3aed;
-  --chart-1: #7c3aed;
-  --chart-2: #06b6d4;
-  --chart-3: #f59e0b;
-  --chart-4: #ec4899;
-  --chart-5: #10b981;
-  --sidebar: #fafafa;
-  --sidebar-foreground: #18181b;
-  --sidebar-primary: #7c3aed;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f5f3ff;
-  --sidebar-accent-foreground: #5b21b6;
-  --sidebar-border: #e4e4e7;
-  --sidebar-ring: #7c3aed;
+  --radius: 0.35rem;
+  --background: #f5f1e8;
+  --foreground: #1d2924;
+  --card: #fffdf7;
+  --card-foreground: #1d2924;
+  --popover: #fffdf7;
+  --popover-foreground: #1d2924;
+  --primary: #1d5b50;
+  --primary-foreground: #fffdf7;
+  --secondary: #e8dfcf;
+  --secondary-foreground: #1d2924;
+  --muted: #ebe5d9;
+  --muted-foreground: #68736c;
+  --accent: #e4a853;
+  --accent-foreground: #1d2924;
+  --destructive: #b54e3b;
+  --border: #d8d0c2;
+  --input: #c9c0b2;
+  --ring: #1d5b50;
+  --chart-1: #1d5b50;
+  --chart-2: #e4a853;
+  --chart-3: #b54e3b;
+  --chart-4: #557d72;
+  --chart-5: #c98c46;
+  --sidebar: #1d2924;
+  --sidebar-foreground: #f5f1e8;
+  --sidebar-primary: #e4a853;
+  --sidebar-primary-foreground: #1d2924;
+  --sidebar-accent: #294a41;
+  --sidebar-accent-foreground: #fffdf7;
+  --sidebar-border: #3c5a51;
+  --sidebar-ring: #e4a853;
 }
 
 .dark {
@@ -118,11 +118,39 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: radial-gradient(#d8d0c2 0.7px, transparent 0.7px);
+    background-size: 18px 18px;
   }
 }
 
 @layer utilities {
   .text-gray-400 {
-    color: rgb(75 85 99); /* Making it darker - equivalent to gray-600 */
+    color: #68736c;
+  }
+}
+
+.display-serif {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.04em;
+}
+
+.paper-panel {
+  background: rgba(255, 253, 247, 0.88);
+  border: 1px solid #d8d0c2;
+  box-shadow: 8px 8px 0 rgba(29, 91, 80, 0.08);
+}
+
+.eyebrow {
+  color: #b54e3b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-size: 14px 14px;
   }
 }

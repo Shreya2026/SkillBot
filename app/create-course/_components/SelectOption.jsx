@@ -21,10 +21,10 @@ function SelectOption() {
             }));
         }
     return (
-        <div className='px-20 md:px-20 lg:px-44'>
-            <div className='grid grid-cols-2 gap-10'>
+        <div className='px-2 md:px-10'>
+            <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                 <div>
-                    <label className='text-sm'>Difficulty level</label>
+                    <label className='mb-2 block text-sm font-bold uppercase tracking-wider text-[#1d5b50]'>Difficulty level</label>
                     <Select onValueChange={(value)=>handleInputCChange('Level',value)}
                         defaultValue={userCourseInput?.Level}>
                         <SelectTrigger className="">
@@ -38,7 +38,7 @@ function SelectOption() {
                     </Select>
                 </div>
                 <div>
-                    <label className='text-sm'>Course Duration</label>
+                    <label className='mb-2 block text-sm font-bold uppercase tracking-wider text-[#1d5b50]'>Course Duration</label>
                     <Select 
                     defaultValue={userCourseInput?.Duration}
                     onValueChange={(value)=>handleInputCChange('Duration',value)}>
@@ -53,7 +53,7 @@ function SelectOption() {
                     </Select>
                 </div>
                 <div>
-                    <label className='text-sm'>Add video</label>
+                    <label className='mb-2 block text-sm font-bold uppercase tracking-wider text-[#1d5b50]'>Add video</label>
                     <Select defaultValue={userCourseInput?.['Display video']} 
                     onValueChange={(value)=>handleInputCChange('Display video',value)}>
                         <SelectTrigger className="">
@@ -66,7 +66,7 @@ function SelectOption() {
                     </Select>
                 </div>
                 <div>
-                    <label className='text-sm'>No of Chapters</label>
+                    <label className='mb-2 block text-sm font-bold uppercase tracking-wider text-[#1d5b50]'>No of Chapters</label>
                     <Input type="number" className="h-14 text-lg"
                     defaultValue={userCourseInput?.noOfChapters}
                     onChange={(e) => handleInputCChange('noOfChapters', e.target.value)}

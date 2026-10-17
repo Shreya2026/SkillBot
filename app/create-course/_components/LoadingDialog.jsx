@@ -12,13 +12,13 @@ import Image from 'next/image';
 function LoadingDialog({ loading }) {
   return (
     <AlertDialog open={loading}>
-  <AlertDialogContent>
+  <AlertDialogContent className="rounded-none border-[#d8d0c2] bg-[#fffdf7]">
     <AlertDialogHeader>
-      <AlertDialogTitle>Loading</AlertDialogTitle>
+      <AlertDialogTitle className="display-serif text-3xl">Building your next chapter</AlertDialogTitle>
 
       {/* Keep text-only inside AlertDialogDescription */}
       <AlertDialogDescription>
-        Please wait while we process your request.
+        We are shaping the outline and preparing your learning path.
       </AlertDialogDescription>
 
       {/* Move this below or above as needed */}

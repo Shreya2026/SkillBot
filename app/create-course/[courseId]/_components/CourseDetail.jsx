@@ -7,31 +7,31 @@ import { IoPlayCircleOutline } from "react-icons/io5";
 
 function CourseDetail({course}) {
   return (
-    <div className='p-10 border rounded-xl shadow-lg mt-5'>
+    <div className='mt-5 border-y border-[#d8d0c2] bg-[#e8dfcf]/60 p-6 md:p-8'>
       <div className='grid grid-cols-2 md:grid-cols-4 gap-5'>
         <div className='flex gap-2'>
-            <IoBarChartOutline className='text-4xl text-primary'/>
+            <IoBarChartOutline className='text-4xl text-[#b54e3b]'/>
             <div>
                 <h2 className='text-xs text-gray-400'>Skill Level</h2>
                 <h2 className='font-medium text-lg '>{course?.level || "Not specified"}</h2>
             </div>
         </div>
         <div className='flex gap-2'>
-            <CiClock2 className='text-4xl text-primary'/>
+            <CiClock2 className='text-4xl text-[#b54e3b]'/>
             <div>
                 <h2 className='text-xs text-gray-400'>Duration</h2>
                 <h2 className='font-medium text-lg '>{course?.courseOutput?.Duration || "Not specified"}</h2>
             </div>
         </div>
         <div className='flex gap-2'>
-            <IoBookOutline className='text-4xl text-primary'/>
+            <IoBookOutline className='text-4xl text-[#b54e3b]'/>
             <div>
                 <h2 className='text-xs text-gray-400'>No of Chapters</h2>
                 <h2 className='font-medium text-lg '>{course?.courseOutput?.NoOfChapters || "Not specified"}</h2>
             </div>
         </div>
         <div className='flex gap-2'>
-            <IoPlayCircleOutline className='text-4xl text-primary'/>
+            <IoPlayCircleOutline className='text-4xl text-[#b54e3b]'/>
             <div>
                 <h2 className='text-xs text-gray-400'>Video Included?</h2>
                 <h2 className='font-medium text-lg '>{course?.includeVideo || "Not specified"}</h2>

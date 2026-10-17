@@ -149,15 +149,17 @@ function CourseLayout({ params }) {
 
 
   return (
-    <div className="mt-10 px-7 md:px-20 lg:x-44">
-      <h2 className="font-bold text-center text-2xl">Course Layout</h2>
+    <div className="mx-auto max-w-6xl px-5 py-10 md:px-10">
+      <p className="eyebrow">Draft / review</p>
+      <h2 className="display-serif mt-2 text-5xl font-bold">Shape your course.</h2>
+      <p className="mt-3 max-w-2xl text-[#68736c]">Review the AI-generated structure, add your cover, and make it yours before the lessons are written.</p>
       <LoadingDialog loading={loading} />
       {course && <CourseBasicInfo course={course} refreshData={() => GetCourse()} />}
 
       <CourseDetail course={course} />
       <ChapterList course={course} refreshData={() => GetCourse()} />
 
-      <Button className="my-10" onClick={GenerateChapterContent}>Generate Course Content</Button>
+      <Button className="my-10 rounded-none bg-[#b54e3b] px-6 text-[#fffdf7] hover:bg-[#963d2e]" onClick={GenerateChapterContent}>Generate course content <span aria-hidden="true">→</span></Button>
     </div>
   );
 }

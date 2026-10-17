@@ -16,16 +16,15 @@ function SelectCategory() {
     }
 
     return (
-    <div className='px-10 md:px-20'>
-        <h2 className='my-5'>Select the Course Category</h2>
-    <div className={`grid grid-cols-3 gap-10 px-10 md:px-20`}>
+    <div className='px-2 md:px-8'>
+        <h2 className='display-serif mb-6 text-3xl font-bold'>What are you curious about?</h2>
+    <div className={`grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3`}>
       {CategoryList.map((item,index)=> (
-        <div key={index} className={`flex flex-col p-5 border items-center rounded-lg hover:border-indigo-100 
-            hover:bg-indigo-50 cursor-pointer ${userCourseInput.category==item.name && 'border-indigo-500 bg-indigo-100'}`}
+        <div key={index} className={`flex cursor-pointer flex-col items-center border p-6 text-center transition-all hover:-translate-y-1 hover:border-[#1d5b50] hover:bg-[#e8dfcf] ${userCourseInput.category==item.name ? 'border-[#1d5b50] bg-[#dce6dd] shadow-[4px_4px_0_#e4a853]' : 'border-[#d8d0c2] bg-[#fffdf7]'}`}
         onClick={() => handleCategoryChange(item.name)}>
             <img src={item.icon} alt={item.name}  height={50} width={50}className="w-12 h-12" />
-            <h3 className="text-lg font-medium text-indigo-600">{item.name}</h3>
-            <p className="text-sm text-gray-500">{item.prompt}</p>
+            <h3 className="mt-3 text-lg font-bold text-[#1d5b50]">{item.name}</h3>
+            <p className="text-sm text-[#68736c]">{item.prompt}</p>
         </div>
       ))}
     </div>
